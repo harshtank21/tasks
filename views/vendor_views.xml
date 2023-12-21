@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="vendor_type_form_view" model="ir.ui.view">
+        <field name="name">vendor.type.form</field>
+        <field name="model">res.partner.vendor.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="rec_vendor_type_tree" model="ir.ui.view">
+        <field name="name">vendor.type.tree</field>
+        <field name="model">res.partner.vendor.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="active" invisible="1"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="rec_vendor_type_action" model="ir.actions.act_window">
+        <field name="name">Vendor Type</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner.vendor.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="rec_vendor_type_menu"
+              name="Vendor Type"
+              action="rec_vendor_type_action"
+              parent="purchase.menu_purchase_config"/>
+
+
+</odoo>
+
