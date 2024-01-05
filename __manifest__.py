@@ -12,7 +12,7 @@ You could use this simplified accounting in case you work with an (external) acc
     """,
     'category': 'Accounting/Accounting',
     'website': 'https://www.odoo.com/app/invoicing',
-    'depends' : ['base','crm','product',"purchase"],
+    'depends' : ['base','crm','product',"purchase","sale",'mail'],
     'data': [
 
         'security/ir.model.access.csv',
@@ -20,7 +20,9 @@ You could use this simplified accounting in case you work with an (external) acc
         'views/crm_lead_views.xml',
         'views/rec_partner_views.xml',
         'views/purchase_orders_views.xml',
-        'views/crm_stage_views.xml'
+        'views/crm_stage_views.xml',
+        'views/sales_order_views.xml',
+        'views/products_views.xml'
 
 
 

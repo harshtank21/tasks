@@ -10,4 +10,41 @@
             </xpath>
         </field>
     </record>
+    <record model="ir.ui.view" id="sale_order_view_inherit">
+        <field name="name">rec.view.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//tree/field[@name='product_template_id']" position="attributes">
+                <attribute name="context">{
+                    'partner_id': parent.partner_id,
+                    'quantity': product_uom_qty,
+                    'pricelist': parent.pricelist_id,
+                    'uom':product_uom,
+                    'company_id': parent.company_id,
+                    'default_list_price': price_unit,
+                    'default_description_sale': name,
+                    'code_match': True}
+                </attribute>
+            </xpath>
+
+<!--            <xpath expr="//field[@name='payment_term_id']" position="after">-->
+<!--                <field name="send_email"/>-->
+<!--                <field name="send__email"/>-->
+<!--                <field name="send_not_email" attrs="{'invisible': [('send_email' , '=',True)]}"/>-->
+<!--            </xpath>-->
+        </field>
+    </record>
+    <!--    <record model="ir.ui.view" id="sale_order_view_inherit">-->
+    <!--        <field name="name">rec.view.inherit</field>-->
+    <!--        <field name="model">pr</field>-->
+    <!--        <field name="inherit_id" ref="product.product_template_search_view"/>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--&lt;!&ndash;            <xpath expr="//field[@name='']" position="after">&ndash;&gt;-->
+    <!--&lt;!&ndash;                <field name="send_email"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;                <field name="send_not_email" attrs="{'invisible': [('send_email' , '=',True)]}"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;            </xpath>&ndash;&gt;-->
+    <!--        </field>-->
+    <!--    </record>-->
 </odoo>

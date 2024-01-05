@@ -9,3 +9,5 @@ class ResPartnerVendorType(models.Model):
     name = fields.Char(string="Vendor Type")
     active = fields.Boolean(default=True)
 
+
+
